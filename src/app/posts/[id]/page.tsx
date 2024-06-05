@@ -1,8 +1,4 @@
-export default async function Page({
-    params
-}){
-    const response = await fetch(`https://dummyjson.com/posts/${params.id}`);
-    const post = await response.json();
+export default async function Page(){
 
     return(
         <main className="px-7 pt-24 text-center">
