@@ -1,9 +1,18 @@
-export default async function Page(){
+import SinglePost from "@/components/single-post";
+import { Suspense } from "react";
+
+export default async function Page({ params }){
+
 
     return(
         <main className="px-7 pt-24 text-center">
-            <h1 className="font-semibold text-5xl mb-7">{post.title}</h1>
-            <p className="max-w-[700px] mx-auto">{post.body}</p>
+        <Suspense fallback="Loading...">
+            <SinglePost params={params} />
+        </Suspense>
+
+        <button className="bg-blue-500 text-white p-2 mt-10">
+        Upvote
+        </button>
         </main>
     );
 }
