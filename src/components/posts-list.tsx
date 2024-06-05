@@ -1,5 +1,9 @@
 import Link from 'next/link';
-import React from 'react'
+
+interface PostProps {
+    id: number;
+    title: string;
+}
 
 export default async function PostList() {
     const response = await fetch("https://dummyjson.com/posts?limit=10");
@@ -7,7 +11,7 @@ export default async function PostList() {
   return (
     <ul>
     {
-      data.posts.map((post) => (
+      data.posts.map((post: PostProps) => (
         <li key={post.id} className="mb-3">
           <Link href={`/posts/${post.id}`}>{post.title}</Link>
         </li>
