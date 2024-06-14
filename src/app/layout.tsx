@@ -1,17 +1,31 @@
+import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Container from "@/components/container";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dz.dev Blog",
   description: "Dz.dev Blog",
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon-32x32.png",
+      href: "/favicon-32x32.png",
+      sizes: "32x32",
+      type: "image/png",
+    },
+    {
+      rel: "icon",
+      url: "/favicon-16x16.png",
+      sizes: "16x16",
+      type: "image/png",
+    },
+  ],
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,12 +33,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-zinc-100 text-zinc-900 min-h-screen`}>
-      <Container>
-        <Header />
-        {children}
-        <Footer />
-      </Container>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <body
+        className={`${inter.className} bg-zinc-100 text-zinc-900 min-h-screen`}
+      >
+        <Container>
+          <Header />
+          {children}
+          <Footer />
+        </Container>
       </body>
     </html>
   );
