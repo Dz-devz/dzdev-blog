@@ -11,11 +11,11 @@ const navLinks = [
   },
   {
     href: "/posts",
-    label: "Posts",
+    label: "Thoughts",
   },
   {
     href: "/create-post",
-    label: "Create Post",
+    label: "Thoughts Sharing",
   },
 ];
 
@@ -23,7 +23,10 @@ export default function Header() {
   const pathName = usePathname();
   return (
     <header className="flex justify-between items-center py-4 px-4 border-b">
-      <Link href="/">
+      <Link
+        href="/"
+        className="flex flex-row items-center gap-2 text-xl font-bold justify-center"
+      >
         <Image
           src={Logo}
           alt=""
@@ -31,8 +34,8 @@ export default function Header() {
           height="35"
           className="w-[35px] h-[35px]"
         />
+        DevThoughts
       </Link>
-
       <nav>
         <ul className="flex gap-x-5 text-[14px]">
           {navLinks.map((link) => (

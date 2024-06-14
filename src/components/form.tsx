@@ -18,12 +18,12 @@ export default function Form() {
         className="border rounded px-3 h-10"
         type="text"
         name="title"
-        placeholder="Title for new post"
+        placeholder="Title"
         required
       />
       <textarea
         name="body"
-        placeholder="New Post"
+        placeholder="Thoughts"
         className="border rounded px-3 py-2"
         rows={6}
         required
