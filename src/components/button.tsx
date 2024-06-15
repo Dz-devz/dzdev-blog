@@ -5,7 +5,7 @@ export default function Button() {
   return (
     <button
       type="submit"
-      className="h-10 px-5 rounded text-white bg-gray-500 disabled:opacity-70"
+      className="h-10 px-5 rounded text-white bg-gray-900 disabled:opacity-70"
       disabled={pending}
     >
       {pending ? (

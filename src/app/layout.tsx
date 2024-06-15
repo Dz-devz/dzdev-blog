@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,10 +36,11 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body
-        className={`${inter.className} bg-zinc-100 text-zinc-900 min-h-screen`}
+        className={`${inter.className} bg-[#E1ACAC] text-zinc-900 min-h-screen`}
       >
         <Container>
           <Header />
+          <Toaster position="top-right" />
           {children}
           <Footer />
         </Container>
