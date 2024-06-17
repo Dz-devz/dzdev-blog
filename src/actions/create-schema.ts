@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const FormSchema = z.object({
+export const CreateSchema = z.object({
   id: z.number().optional(),
   title: z
     .string()
@@ -15,4 +15,4 @@ export const FormSchema = z.object({
     .trim(),
 });
 
-export type FormS = z.infer<typeof FormSchema>;
+export type FormS = z.infer<typeof CreateSchema>;
