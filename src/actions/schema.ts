@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const CreateSchema = z.object({
+export const schema = z.object({
   id: z.number().optional(),
   title: z
     .string()
@@ -15,4 +15,10 @@ export const CreateSchema = z.object({
     .trim(),
 });
 
-export type FormS = z.infer<typeof CreateSchema>;
+export type FormS = z.infer<typeof schema>;
+
+export const deleteSchema = z.object({
+  id: z.number(),
+});
+
+// export type DeleteS = z.infer<typeof deleteSchema>;

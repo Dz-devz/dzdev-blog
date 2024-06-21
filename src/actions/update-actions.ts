@@ -1,21 +1,22 @@
 "use server";
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
+import { schema } from "./schema";
 
 export async function editThoughts(formData: FormData) {
-  const thoughtsId = formData.get("id") as string;
-  const title = formData.get("title") as string;
-  const body = formData.get("body") as string;
-
-  const id = parseInt(thoughtsId);
+  const parsedSchema = schema.parse({
+    id: formData.get("id"),
+    title: formData.get("title"),
+    body: formData.get("body"),
+  });
 
   await prisma.post.update({
     where: {
-      id: id,
+      id: parsedSchema.id,
     },
     data: {
-      title: title,
-      body: body,
+      title: parsedSchema.title,
+      body: parsedSchema.body,
     },
   });
   revalidatePath("/");

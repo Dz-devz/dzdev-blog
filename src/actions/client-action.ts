@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { createThoughts } from "./create-actions";
-import { CreateSchema } from "./create-schema";
+import { schema } from "./schema";
 
 export const clientAction = async (formData: FormData) => {
   const newThoughts = {
@@ -8,7 +8,7 @@ export const clientAction = async (formData: FormData) => {
     body: formData.get("body"),
   };
 
-  const result = CreateSchema.safeParse(newThoughts);
+  const result = schema.safeParse(newThoughts);
   if (!result.success) {
     let errorMessage = "";
 

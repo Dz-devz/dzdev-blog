@@ -13,7 +13,7 @@ export default function Form() {
         await clientAction(create);
         ref.current?.reset();
       }}
-      className="gap-2 my-10 flex flex-col mx-auto max-w-[600px]"
+      className="gap-2 my-3 flex flex-col mx-auto max-w-[600px]"
     >
       <input
         className="border rounded px-3 h-10 bg-slate-100"
@@ -29,7 +29,7 @@ export default function Form() {
         rows={6}
         required
       />
-      <Button />
+      <Button btnName="Submit" />
     </form>
   );
 }

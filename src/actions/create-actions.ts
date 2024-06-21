@@ -4,7 +4,7 @@ import prisma from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { CreateSchema } from "./create-schema";
+import { Schema } from "./schema";
 
 export async function createThoughts(newThoughts: unknown) {
   const { isAuthenticated } = getKindeServerSession();
@@ -12,7 +12,7 @@ export async function createThoughts(newThoughts: unknown) {
     redirect("/api/auth/login");
   }
   // server-side validation
-  const result = CreateSchema.safeParse(newThoughts);
+  const result = Schema.safeParse(newThoughts);
   if (!result.success) {
     let errorMessage = "";
 
