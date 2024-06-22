@@ -21,4 +21,4 @@ export const deleteSchema = z.object({
   id: z.number(),
 });
 
-// export type DeleteS = z.infer<typeof deleteSchema>;
+export type DeleteS = z.infer<typeof deleteSchema>;

@@ -18,8 +18,6 @@ export default async function DeleteButton({
     notFound();
   }
 
-  console.log(deletePost.id);
-
   return (
     <>
       <form action={deleteThoughts}>

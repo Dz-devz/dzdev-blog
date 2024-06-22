@@ -23,9 +23,6 @@ export async function ModalEdit({ params }: { params: { id: string } }) {
   if (!post) {
     notFound();
   }
-  console.log(post.title);
-  console.log(post.body);
-
   return (
     <Dialog>
       <DialogTrigger asChild>

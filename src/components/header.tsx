@@ -10,6 +10,10 @@ const navLinks = [
     label: "Home",
   },
   {
+    href: "/about",
+    label: "About",
+  },
+  {
     href: "/posts",
     label: "Thoughts",
   },
