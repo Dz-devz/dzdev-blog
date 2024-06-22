@@ -2,18 +2,18 @@
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { deleteSchema } from "./schema";
 
 export async function deleteThoughts(formData: FormData) {
-  const deleteId = formData.get("deleteId") as string;
+  const parsedSchema = deleteSchema.parse({
+    id: formData.get("deleteId"),
+  });
+  const parId = parseInt(parsedSchema.id);
 
-  const delId = parseInt(deleteId);
-  // const parsedSchema = deleteSchema.parse({
-  //   id: formData.get("deleteId"),
-  // });
   try {
     await prisma.post.delete({
       where: {
-        id: delId,
+        id: parId,
       },
     });
   } catch (error) {

@@ -6,13 +6,13 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { schema } from "./schema";
 
-export async function createThoughts(newThoughts: unknown) {
+export async function createThoughts(formData: unknown) {
   const { isAuthenticated } = getKindeServerSession();
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
   }
   // server-side validation
-  const result = schema.safeParse(newThoughts);
+  const result = schema.safeParse(formData);
   if (!result.success) {
     let errorMessage = "";
 

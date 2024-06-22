@@ -18,7 +18,14 @@ export const schema = z.object({
 export type FormS = z.infer<typeof schema>;
 
 export const deleteSchema = z.object({
-  id: z.number(),
+  id: z.string(),
 });
 
 export type DeleteS = z.infer<typeof deleteSchema>;
+
+export const linkCreateSchema = z.object({
+  id: z.string(),
+  link: z.string(),
+});
+
+export type LinkS = z.infer<typeof linkCreateSchema>;
