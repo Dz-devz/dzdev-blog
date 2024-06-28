@@ -14,7 +14,16 @@ import { Label } from "@/components/ui/label";
 import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
 
-export async function ModalEdit({ params }: { params: { id: string } }) {
+interface ModalEditProps {
+  params: { id: string };
+  title: string;
+  desc: string;
+  btn: string;
+}
+
+export async function ModalEdit(props: ModalEditProps) {
+  const { params, title, desc, btn } = props;
+
   const post = await prisma.post.findUnique({
     where: {
       id: parseInt(params.id),
@@ -26,14 +35,12 @@ export async function ModalEdit({ params }: { params: { id: string } }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit</Button>
+        <Button variant="outline">{title}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit</DialogTitle>
-          <DialogDescription>
-            Make changes to your Thoughts here. Click save when you are done.
-          </DialogDescription>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{desc}</DialogDescription>
         </DialogHeader>
 
         <form action={editThoughts}>
@@ -62,7 +69,7 @@ export async function ModalEdit({ params }: { params: { id: string } }) {
             </div>
           </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">{btn}</Button>
           </DialogFooter>
         </form>
       </DialogContent>
