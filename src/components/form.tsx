@@ -18,6 +18,13 @@ export default function Form() {
       <input
         className="border rounded px-3 h-10 bg-slate-100"
         type="text"
+        name="category"
+        placeholder="Category"
+        required
+      />
+      <input
+        className="border rounded px-3 h-10 bg-slate-100"
+        type="text"
         name="title"
         placeholder="Title"
         required
