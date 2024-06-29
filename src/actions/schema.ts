@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const schema = z.object({
   id: z.number().optional(),
+  category: z.string({ message: "Category Already Exist Must be Unique." }),
   title: z
     .string()
     .min(2, { message: "Title must atleast have 2 characters long" })

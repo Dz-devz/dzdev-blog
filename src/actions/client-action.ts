@@ -4,6 +4,7 @@ import { schema } from "./schema";
 
 export const clientAction = async (formData: FormData) => {
   const newThoughts = {
+    category: formData.get("category"),
     title: formData.get("title"),
     body: formData.get("body"),
   };
@@ -20,8 +21,14 @@ export const clientAction = async (formData: FormData) => {
   }
   console.log(result.data);
 
-  const response = await createThoughts(result.data);
-  if (response?.error) {
-    toast.error(response.error);
+  try {
+    const response = await createThoughts(result.data);
+    if (response?.error) {
+      toast.error(response.error);
+    } else {
+      toast.success("Thoughts created successfully!");
+    }
+  } catch (error) {
+    toast.error("Failed to create thoughts. Please try again later.");
   }
 };

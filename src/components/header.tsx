@@ -18,10 +18,6 @@ const navLinks = [
     label: "Thoughts",
   },
   {
-    href: "/post-link",
-    label: "Thoughts Category",
-  },
-  {
     href: "/create-post",
     label: "Thoughts Sharing",
   },
