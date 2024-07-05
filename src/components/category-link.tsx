@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default async function CategoryLinks() {
   const allThoughts = await prisma.post.findMany();
-
   return (
     <>
       <nav className="flex justify-center items-center py-4 px-4 text-zinc-400 gap-2 text-xl">

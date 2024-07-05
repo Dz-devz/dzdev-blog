@@ -7,9 +7,7 @@ export default async function Page() {
       <h1 className="text-4xl md:text-5xl font-bold mb-5">
         Wants on your mind?
       </h1>
-
       <Form />
-
       <Logout />
     </main>
   );
