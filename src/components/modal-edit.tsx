@@ -32,6 +32,8 @@ export async function ModalEdit(props: ModalEditProps) {
   if (!post) {
     notFound();
   }
+  // const parsed = parseInt(post.id);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,7 +51,7 @@ export async function ModalEdit(props: ModalEditProps) {
               <Label htmlFor="title" className="text-right">
                 Title
               </Label>
-              <Input name="id" value={post.id} type="hidden" />
+              <input name="id" value={post.id} type="hidden" />
               <Input
                 name="title"
                 defaultValue={post.title}
@@ -60,7 +62,7 @@ export async function ModalEdit(props: ModalEditProps) {
               <Label htmlFor="" className="text-right">
                 Thoughts
               </Label>
-              <Input name="id" value={post.id} type="hidden" />
+              <input name="id" value={post.id} type="hidden" />
               <Input
                 name="body"
                 defaultValue={post.body}

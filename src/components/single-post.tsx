@@ -38,7 +38,9 @@ export default async function SinglePost({ params }: SinglePostProps) {
   return (
     <>
       <h1 className="font-semibold break-words text-5xl mb-7">{post.title}</h1>
-      <p className="w-[700px] break-words mr-auto ml-auto">{post.body}</p>
+      <p className="w-[700px] p-10bg-white break-words mr-auto ml-auto">
+        {post.body}
+      </p>
       <div className="mt-20 items-center justify-center flex gap-2">
         <ModalEdit {...modalEditProps} />
         <DeleteButton
