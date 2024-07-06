@@ -19,7 +19,7 @@ export const schema = z.object({
 export type FormS = z.infer<typeof schema>;
 
 export const updateSchema = z.object({
-  id: z.number().optional(),
+  id: z.coerce.number().optional(),
   title: z
     .string()
     .min(2, { message: "Title must atleast have 2 characters long" })

@@ -32,7 +32,6 @@ export async function ModalEdit(props: ModalEditProps) {
   if (!post) {
     notFound();
   }
-  // const parsed = parseInt(post.id);
 
   return (
     <Dialog>
