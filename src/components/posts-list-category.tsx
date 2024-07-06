@@ -17,9 +17,12 @@ export default async function PostListCategory({
     },
   });
   return (
-    <ul className="text-xl">
+    <ul className="text-xl mr-auto ml-auto w-[600px]">
       {posts.map((post) => (
-        <li key={post.id} className="mb-3 hover:text-[#CA8787]">
+        <li
+          key={post.id}
+          className="mb-3 hover:border-[#CA8787] hover:text-[#CA8787] border-[2px] border-black h-16 flex items-center justify-center p-2 "
+        >
           <Link href={`/posts/${post.id}`}>{post.title}</Link>
         </li>
       ))}
