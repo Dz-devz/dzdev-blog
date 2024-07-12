@@ -4,7 +4,7 @@ import prisma from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { schema } from "./schema";
+import { schema } from "../utils/schema";
 
 export async function createThoughts(formData: unknown) {
   const { isAuthenticated } = getKindeServerSession();

@@ -1,7 +1,7 @@
 "use server";
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { updateSchema } from "./schema";
+import { updateSchema } from "../utils/schema";
 
 export async function editThoughts(formData: FormData) {
   const parsedSchema = updateSchema.parse({

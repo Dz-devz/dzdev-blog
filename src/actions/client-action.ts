@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
+import { schema } from "../utils/schema";
 import { createThoughts } from "./create-actions";
-import { schema } from "./schema";
 
 export const clientAction = async (formData: FormData) => {
   const newThoughts = {

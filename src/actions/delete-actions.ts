@@ -2,7 +2,7 @@
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { deleteSchema } from "./schema";
+import { deleteSchema } from "../utils/schema";
 
 export async function deleteThoughts(formData: FormData) {
   const parsedSchema = deleteSchema.parse({
