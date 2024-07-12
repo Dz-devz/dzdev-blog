@@ -26,7 +26,7 @@ const navLinks = [
 export default function Header() {
   const pathName = usePathname();
   return (
-    <header className="flex justify-between items-center py-4 px-4 border-b border-b-zinc-500">
+    <header className="flex justify-between items-center py-4 px-4 border-b border-b-zinc-500 max-[545px]:flex-col">
       <Link
         href="/"
         className="flex flex-row items-center gap-2 text-xl font-bold justify-center"

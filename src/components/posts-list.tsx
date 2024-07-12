@@ -1,15 +1,10 @@
 import prisma from "@/lib/db";
 import Link from "next/link";
 
-// interface PostProps {
-//     id: number;
-//     title: string;
-// }
-
 export default async function PostList() {
   const posts = await prisma.post.findMany();
   return (
-    <ul className="text-xl w-[600px] mr-auto ml-auto">
+    <ul className="text-xl flex items-center justify-center mr-auto ml-auto">
       {posts.map((post) => (
         <li
           key={post.id}
