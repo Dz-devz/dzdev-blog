@@ -6,7 +6,7 @@ export default function Button({ btnName }: { btnName: String }) {
   return (
     <button
       type="submit"
-      className="h-10 px-5 rounded text-white bg-gray-900 disabled:opacity-70 hover:opacity-[0.8]"
+      className="h-10 px-5 rounded text-white bg-gray-900 disabled:opacity-70 hover:opacity-[0.8] max-[600px]:w-[400px] max-[400px]:w-[350px] max-[355px]:w-[300px] max-[600px]:mx-auto"
       disabled={pending}
     >
       {pending ? (
