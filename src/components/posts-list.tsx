@@ -8,7 +8,7 @@ export default async function PostList() {
       {posts.map((post) => (
         <li
           key={post.id}
-          className="mb-3 hover:border-[#CA8787] hover:text-[#CA8787] border-[2px] border-black h-12 flex items-center justify-center p-2"
+          className="mb-3 hover:border-zinc-800 border-zinc-800 border-x-2 hover:border-y-2 hover:border-x-0 hover:animate-in hover:animate-out p-2 h-12 flex items-center justify-center"
         >
           <Link href={`/posts/${post.id}`}>{post.title}</Link>
         </li>
