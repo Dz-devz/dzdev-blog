@@ -20,6 +20,6 @@ export async function deleteThoughts(formData: FormData) {
     console.log(error);
   }
 
-  revalidatePath("/");
+  revalidatePath("/posts");
   redirect("/posts");
 }
