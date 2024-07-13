@@ -1,8 +1,14 @@
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { schema } from "../utils/schema";
 import { createThoughts } from "./create-actions";
 
 export const clientAction = async (formData: FormData) => {
+  const { isAuthenticated } = getKindeServerSession();
+  if (!(await isAuthenticated())) {
+    redirect("/api/auth/login");
+  }
   const newThoughts = {
     category: formData.get("category"),
     title: formData.get("title"),

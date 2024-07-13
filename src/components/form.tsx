@@ -1,5 +1,5 @@
 "use client";
-import { createThoughts } from "@/actions/create-actions";
+import { clientAction } from "@/actions/client-action";
 import { searchAction } from "@/actions/search-action";
 import { AutoComplete, ConfigProvider } from "antd";
 import { useEffect, useRef, useState } from "react";
@@ -33,7 +33,7 @@ export default function Form() {
     <form
       ref={ref}
       action={async (create) => {
-        await createThoughts(create);
+        await clientAction(create);
         ref.current?.reset();
         setSelectedCategory("");
       }}
