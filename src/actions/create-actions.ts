@@ -11,7 +11,7 @@ export async function createThoughts(formData: unknown) {
   if (!(await isAuthenticated())) {
     redirect("/api/auth/login");
   }
-  // server-side validation
+
   const result = schema.safeParse(formData);
   if (!result.success) {
     let errorMessage = "";
