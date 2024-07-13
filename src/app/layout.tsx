@@ -35,9 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body
-        className={`${inter.className} bg-[#E1ACAC] text-zinc-900 min-h-screen`}
-      >
+      <body className={`${inter.className}text-zinc-900 min-h-screen`}>
         <Container>
           <Header />
           <Toaster position="top-right" />
