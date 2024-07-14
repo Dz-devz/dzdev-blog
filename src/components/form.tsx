@@ -2,7 +2,7 @@
 import { clientAction } from "@/actions/client-action";
 import { searchAction } from "@/actions/search-action";
 import { AutoComplete, ConfigProvider } from "antd";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Button from "./button";
 
@@ -10,7 +10,7 @@ export default function Form() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const ref = useRef<HTMLFormElement>(null);
-  const router = useRouter();
+  // const router = useRouter();
   const [authenticated, setAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -45,9 +45,9 @@ export default function Form() {
 
   useEffect(() => {
     if (authenticated === false) {
-      router.replace("/api/auth/login");
+      redirect("/api/auth/login");
     }
-  }, [authenticated, router]);
+  }, [authenticated]);
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
