@@ -1,3 +1,7 @@
+import {
+  LoginLink,
+  RegisterLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 export default function Home() {
   return (
     <main className="text-center pt-32 px-5">
@@ -8,6 +12,14 @@ export default function Home() {
         Everytime you share, it will leave a mark in someones heart or in your
         heart. those Profound Thoughts you share can create miracle.
       </p>
+      <div className="space-x-3 mt-5">
+        <LoginLink className="bg-zinc-900 text-white py-2 px-5 rounded-md mt-10">
+          Login
+        </LoginLink>
+        <RegisterLink className="bg-white text-zinc-900 py-2 px-5 rounded-md mt-10">
+          Sign up
+        </RegisterLink>
+      </div>
     </main>
   );
 }
