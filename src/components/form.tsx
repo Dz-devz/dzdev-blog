@@ -47,7 +47,8 @@ export default function Form() {
     if (authenticated === false) {
       redirect("/api/auth/login");
     }
-  }, [authenticated]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
