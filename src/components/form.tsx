@@ -1,9 +1,8 @@
 "use client";
 import { clientAction } from "@/actions/client-action";
 import { searchAction } from "@/actions/search-action";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { AutoComplete, ConfigProvider } from "antd";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Button from "./button";
 
@@ -11,7 +10,8 @@ export default function Form() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const ref = useRef<HTMLFormElement>(null);
-  const { isAuthenticated } = useKindeBrowserClient();
+  const router = useRouter();
+  const [authenticated, setAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
     async function fetchCategories() {
@@ -25,9 +25,29 @@ export default function Form() {
     fetchCategories();
   }, []);
 
-  if (isAuthenticated === false) {
-    redirect("/api/auth/login");
-  }
+  useEffect(() => {
+    async function fetchAuthenticationStatus() {
+      try {
+        const response = await fetch("/api/auth/check-auth");
+        if (response.ok) {
+          const data = await response.json();
+          setAuthenticated(data.isAuthenticated);
+        } else {
+          throw new Error("Failed to fetch authentication status");
+        }
+      } catch (error) {
+        console.error("Error checking authentication status:", error);
+        setAuthenticated(false);
+      }
+    }
+    fetchAuthenticationStatus();
+  }, []);
+
+  useEffect(() => {
+    if (authenticated === false) {
+      router.replace("/api/auth/login");
+    }
+  }, [authenticated, router]);
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
@@ -36,7 +56,6 @@ export default function Form() {
   const handleCategoryChange = (value: string) => {
     setSelectedCategory(value);
   };
-
   return (
     <form
       ref={ref}
